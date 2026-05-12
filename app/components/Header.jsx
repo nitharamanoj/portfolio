@@ -76,7 +76,7 @@ const Header = ({ isDarkMode }) => {
           <Image src={assets.right_arrow_white} alt='' className='w-4 dark:invert' />
         </a>
         <a
-          href='/sample-resume.pdf'
+          href='/resume.pdf'
           download
           className='px-10 py-3 border rounded-full border-gray-400 flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-800 transition-all duration-300 dark:bg-transparent dark:text-white dark:border-white/60 dark:hover:bg-white/10 shadow-sm'
         >

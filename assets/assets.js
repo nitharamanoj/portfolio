@@ -81,11 +81,13 @@ export const workData = [
         title: 'Eco-Nexus',
         description: 'Web App',
         bgImage: '/eco-nexus.png',
+        link: 'https://github.com/nitharamanoj/Eco-nexus',
     },
     {
         title: 'Farming Assistant',
         description: 'Web App',
         bgImage: '/farming-assistant.png',
+        link: 'https://github.com/nitharamanoj/Farming-Assistant-',
     },
 ]
 

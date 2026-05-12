@@ -1,29 +1,13 @@
 'use client'
-import { assets } from '../../assets/assets'
-import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
 const Contact = ({ isDarkMode }) => {
-    const [result, setResult] = useState('')
-
-    const onSubmit = async (e) => {
-        e.preventDefault()
-        setResult('Sending...')
-        const formData = new FormData(e.target)
-        formData.append('access_key', 'YOUR_ACCESS_KEY')
-        const res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData,
-        })
-        const data = await res.json()
-        if (data.success) {
-            setResult('Message sent successfully!')
-            e.target.reset()
-        } else {
-            setResult(data.message)
-        }
-    }
+    const contactLinks = [
+        { label: 'EMAIL', href: 'mailto:nitharamanoj@gmail.com' },
+        { label: 'GITHUB', href: 'https://github.com/nitharamanoj' },
+        { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/nithara-manoj-097606385' }
+    ]
 
     return (
         <motion.section
@@ -45,62 +29,34 @@ const Contact = ({ isDarkMode }) => {
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-center text-gray-800 dark:text-white text-4xl sm:text-5xl font-Ovo mb-4"
+                className="text-center text-gray-800 dark:text-white text-4xl sm:text-5xl font-Ovo mb-12"
             >
                 Get in touch
             </motion.h2>
-            <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="text-center text-gray-600 dark:text-white/60 font-Ovo max-w-xl mx-auto mb-12"
-            >
-                I&apos;d love to hear from you! If you have any questions, projects, or just want to say hi, feel free to reach out.
-            </motion.p>
 
-            <motion.form
+            <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-                onSubmit={onSubmit}
-                className="max-w-2xl mx-auto"
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="max-w-4xl mx-auto w-full border border-gray-800 dark:border-white/20 flex flex-col sm:flex-row"
             >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <input
-                        name="name"
-                        type="text"
-                        placeholder="Enter your name"
-                        required
-                        className="w-full bg-white dark:bg-white/5 border border-gray-400 dark:border-white/20 rounded-xl px-5 py-4 text-gray-800 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/40 font-Ovo outline-none focus:border-gray-600 dark:focus:border-white/60 transition-all shadow-sm dark:shadow-none"
-                    />
-                    <input
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        required
-                        className="w-full bg-white dark:bg-white/5 border border-gray-400 dark:border-white/20 rounded-xl px-5 py-4 text-gray-800 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/40 font-Ovo outline-none focus:border-gray-600 dark:focus:border-white/60 transition-all shadow-sm dark:shadow-none"
-                    />
-                </div>
-                <textarea
-                    name="message"
-                    rows={6}
-                    placeholder="Enter your message"
-                    required
-                    className="w-full bg-white dark:bg-white/5 border border-gray-400 dark:border-white/20 rounded-xl px-5 py-4 text-gray-800 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/40 font-Ovo outline-none focus:border-gray-600 dark:focus:border-white/60 transition-all resize-none mb-5 shadow-sm dark:shadow-none"
-                />
-                <div className="text-center">
-                    <button
-                        type="submit"
-                        className="inline-flex items-center gap-3 px-10 py-4 border border-gray-800 dark:border-white bg-black dark:bg-transparent text-white dark:text-white rounded-full font-Ovo hover:bg-gray-800 dark:hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
+                {contactLinks.map((link, idx) => (
+                    <a
+                        key={idx}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex-1 flex justify-between items-center px-8 py-6 group hover:bg-gray-100 dark:hover:bg-white/5 transition-colors border-b sm:border-b-0 sm:border-r border-gray-800 dark:border-white/20 last:border-0`}
                     >
-                        Submit now
-                        <Image src={assets.right_arrow_white} alt="" className="w-4" />
-                    </button>
-                </div>
-                {result && (
-                    <p className="text-center mt-5 text-gray-600 dark:text-white/70 font-Ovo">{result}</p>
-                )}
-            </motion.form>
+                        <span className="text-sm font-semibold tracking-widest text-gray-800 dark:text-white/80 group-hover:text-black dark:group-hover:text-white font-mono transition-colors">
+                            {link.label}
+                        </span>
+                        <svg className="w-3.5 h-3.5 text-gray-500 dark:text-white/40 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </a>
+                ))}
+            </motion.div>
         </motion.section>
     )
 }

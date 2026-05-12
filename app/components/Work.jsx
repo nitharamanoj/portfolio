@@ -42,6 +42,7 @@ const Work = ({ isDarkMode }) => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: i * 0.2 }}
                         key={i}
+                        onClick={() => window.open(project.link, '_blank')}
                         style={{ backgroundImage: `url(${project.bgImage})` }}
                         className="relative aspect-video bg-cover bg-top rounded-2xl overflow-hidden group cursor-pointer shadow-lg"
                     >
@@ -64,20 +65,7 @@ const Work = ({ isDarkMode }) => {
                 ))}
             </motion.div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="text-center mt-8"
-            >
-                <a
-                    href="#"
-                    className="inline-flex items-center gap-3 px-8 py-3 border border-gray-400 text-gray-800 dark:border-white/30 rounded-full dark:text-white hover:bg-gray-100 dark:hover:bg-white dark:hover:text-[#11001F] transition-all duration-300 font-Ovo"
-                >
-                    Show more
-                    <Image src={isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold} alt="" className="w-4" />
-                </a>
-            </motion.div>
+
         </motion.section>
     )
 }
