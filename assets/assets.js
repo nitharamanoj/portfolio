@@ -79,29 +79,35 @@ export const assets = {
 export const workData = [
     {
         title: 'Eco-Nexus',
-        description: 'Web App',
+        description: 'Waste Management • Route Optimisation • Next.js + FastAPI',
         bgImage: '/eco-nexus.png',
         link: 'https://github.com/nitharamanoj/Eco-nexus',
     },
     {
         title: 'Farming Assistant',
-        description: 'Web App',
+        description: 'AI-Powered Agriculture • Crop Advisory • React + Python',
         bgImage: '/farming-assistant.png',
         link: 'https://github.com/nitharamanoj/Farming-Assistant-',
+    },
+    {
+        title: 'College Voting System',
+        description: 'Secure Digital Elections • OTP Auth • PHP + MySQL',
+        bgImage: '/college-voting-system.png',
+        link: 'https://github.com/nitharamanoj/collegevotingsystem',
     },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web Development', description: 'Building responsive and user-friendly websites using HTML, CSS, JavaScript and modern frameworks.', link: '' },
-    { icon: assets.mobile_icon, title: 'Frontend Development', description: 'Creating interactive and visually appealing user interfaces with React and Next.js.', link: '' },
-    { icon: assets.ui_icon, title: 'Backend Basics', description: 'Basic knowledge of PHP and MySQL for building dynamic, data-driven web applications.', link: '' },
-    { icon: assets.graphics_icon, title: 'Database Management', description: 'Experience using MySQL to store, manage, and retrieve application data efficiently.', link: '' },
+    { icon: assets.web_icon, title: 'Full-Stack Development', description: 'End-to-end web applications using React, Next.js, PHP & Python — from database design to production deployment.', link: '' },
+    { icon: assets.mobile_icon, title: 'Frontend Engineering', description: 'Pixel-perfect, responsive UIs with React & Next.js, featuring smooth animations and accessible component architecture.', link: '' },
+    { icon: assets.ui_icon, title: 'Backend & API Design', description: 'RESTful APIs with PHP and Python (FastAPI), backed by MySQL — with security patterns like HMAC hashing and TOTP auth.', link: '' },
+    { icon: assets.graphics_icon, title: 'Database Management', description: 'Relational schema design, query optimisation, and secure data handling with MySQL across multiple production projects.', link: '' },
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript, PHP, MySQL, React, Next.js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Bachelor of Computer Applications (Final Year)' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built 2+ real-world web projects' }
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages & Frameworks', description: 'HTML, CSS, JavaScript, PHP, Python, MySQL, React, Next.js, FastAPI' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Bachelor of Computer Applications (BCA) — Graduated 2026' },
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built 3+ production-ready web applications' }
 ];
 
 export const toolsData = [

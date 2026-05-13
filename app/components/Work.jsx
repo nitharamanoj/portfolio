@@ -11,13 +11,13 @@ const Work = ({ isDarkMode }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="w-full px-6 sm:px-[8%] py-20"
+            className="w-full px-6 sm:px-[8%] py-24"
         >
             <motion.h4
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-center text-gray-600 dark:text-white/60 font-Ovo mb-2 text-lg"
+                className="text-center text-cyan-500 dark:text-cyan-400 font-Ovo mb-2 text-sm font-semibold tracking-widest uppercase"
             >
                 My portfolio
             </motion.h4>
@@ -25,7 +25,7 @@ const Work = ({ isDarkMode }) => {
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-center text-gray-800 dark:text-white text-4xl sm:text-5xl font-Ovo mb-12"
+                className="text-center text-slate-900 dark:text-white text-4xl sm:text-5xl font-Ovo mb-14"
             >
                 My latest work
             </motion.h2>
@@ -38,34 +38,35 @@ const Work = ({ isDarkMode }) => {
             >
                 {workData.map((project, i) => (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: i * 0.2 }}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: i * 0.15 }}
                         key={i}
                         onClick={() => window.open(project.link, '_blank')}
-                        style={{ backgroundImage: `url(${project.bgImage})` }}
-                        className="relative aspect-video bg-cover bg-top rounded-2xl overflow-hidden group cursor-pointer shadow-lg"
+                        style={{ backgroundImage: `url(${project.bgImage})`, backgroundColor: '#0f172a' }}
+                        className="relative aspect-video bg-contain bg-center bg-no-repeat rounded-2xl overflow-hidden group cursor-pointer shadow-lg border border-slate-200 dark:border-slate-700/40 hover:border-cyan-400/60 dark:hover:border-cyan-400/40 hover:shadow-2xl hover:shadow-cyan-400/10 transition-all duration-500"
                     >
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
+                        <div className="absolute inset-0 bg-slate-900/50 group-hover:bg-slate-900/30 transition-all duration-300" />
+
+                        {/* Cyan top accent on hover */}
+                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
                         {/* Card info */}
                         <div className="absolute bottom-5 left-5 right-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 flex items-center justify-between">
+                            <div className="bg-slate-900/80 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-center justify-between">
                                 <div>
                                     <h3 className="text-white font-semibold">{project.title}</h3>
-                                    <p className="text-white/70 text-sm font-Ovo">{project.description}</p>
+                                    <p className="text-cyan-400/90 text-xs font-Ovo mt-0.5">{project.description}</p>
                                 </div>
-                                <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                                    <Image src={assets.send_icon} alt="view" className="w-5" />
+                                <div className="w-9 h-9 bg-cyan-400 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-400/30">
+                                    <Image src={assets.send_icon} alt="view" className="w-4 invert" />
                                 </div>
                             </div>
                         </div>
                     </motion.div>
                 ))}
             </motion.div>
-
-
         </motion.section>
     )
 }

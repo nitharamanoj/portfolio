@@ -13,8 +13,8 @@ const ovo = Ovo({
 
 
 export const metadata: Metadata = {
-  title: "Nithara Manoj ",
-  description: "Bca student & Full stack Developer",
+  title: "Nithara Manoj — Full-Stack Web Developer",
+  description: "Full-Stack Web Developer specialising in React, Next.js, PHP & Python. Recently graduated BCA — open to full-time opportunities.",
 };
 
 export default function RootLayout({
